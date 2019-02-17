@@ -3,24 +3,25 @@ package guru.springframework.controllers;
 import guru.springframework.services.GreetingServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
 
 /**
  * Created by jt on 5/24/17.
  */
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class GetterInjectedControllerTest {
-
+    @Autowired
     private GetterInjectedController getterInjectedController;
 
-    @Before
-    public void setUp() throws Exception {
-        this.getterInjectedController = new GetterInjectedController();
-        this.getterInjectedController.setGreetingService(new GreetingServiceImpl());
-    }
 
     @Test
     public void testGreeting() throws Exception {
-        assertEquals(GreetingServiceImpl.HELLO_GURUS, getterInjectedController.sayHello());
+        assertEquals("Hello - I was injected by the getter", getterInjectedController.sayHello());
     }
 }

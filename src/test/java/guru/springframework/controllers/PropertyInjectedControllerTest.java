@@ -4,6 +4,7 @@ import guru.springframework.services.GreetingServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -17,15 +18,8 @@ import static org.mockito.Mockito.when;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PropertyInjectedControllerTest {
-    @MockBean
+    @Autowired
     private PropertyInjectedController propertyInjectedController;
-
-    @Before
-    public void setUp() throws Exception {
-       // this.propertyInjectedController = new PropertyInjectedController();
-       // this.propertyInjectedController.greetingServiceImpl = new GreetingServiceImpl();
-        when(propertyInjectedController.sayHello()).thenReturn(GreetingServiceImpl.HELLO_GURUS);
-    }
 
     @Test
     public void testGreeting() throws Exception {

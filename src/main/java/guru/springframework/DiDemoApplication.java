@@ -6,6 +6,7 @@ import guru.springframework.examplebeans.FakeJmsBroker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import guru.springframework.config.PropertyConfig1;
 
 @SpringBootApplication
 public class DiDemoApplication {
@@ -21,5 +22,9 @@ public class DiDemoApplication {
 
 		FakeJmsBroker fakeJmsBroker = (FakeJmsBroker) ctx.getBean(FakeJmsBroker.class);
 		System.out.println(fakeJmsBroker.getUsername());
+
+		PropertyConfig1 config1 = (PropertyConfig1)ctx.getBean(PropertyConfig1.class);
+		System.out.println(config1.getUsername());
+		System.out.println(config1.getLastname());
 	}
 }

@@ -4,9 +4,8 @@ guru:
     password: somepass
     url: SomeUrl
 
----
+
 spring:
-    profiles: de
-guru:
-  jms:
-    username: JMS Username $$$$$$ German
+    profiles:
+        include:
+               de
